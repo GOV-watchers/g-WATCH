@@ -1,4 +1,7 @@
--- How many hours would the minimum wage person need to work in order to purchase a house every year?
+--Comparing different minimum wages in different years, can you determine whether it would have been possible to afford a home in 1990 or 2000 
+--based on the hours needed to reach that affordability level?
+--modify for downpayment and using 50% of income
+
 
 WITH MW AS (
     SELECT * FROM {{ ref('stg_mw') }}
