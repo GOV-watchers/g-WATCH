@@ -1,12 +1,3 @@
--- -- Reference the MHI and CPI models
--- WITH CPI AS (
---     SELECT *
---     FROM {{ ref('stg_yearly_cpi') }}
--- ),
--- MHI AS (
---     SELECT *
---     FROM {{ ref('stg_mhi') }}
--- )
 
 -- Reference the MHI and CPI models
 WITH MHI AS (
