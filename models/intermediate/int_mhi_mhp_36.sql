@@ -1,3 +1,6 @@
+--Based on the Median Household Income, 
+--how many hours would it take to fully pay the house without a loan (36% of the budget over the years is being used)?
+
 WITH MHI AS (
     SELECT * FROM {{ ref('stg_mhi') }}
 ),

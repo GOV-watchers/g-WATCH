@@ -1,3 +1,7 @@
+--Compare the changes in the minimum wage on people's ability to buy things compared to inflation (CPI) 
+--and the average household income over time?
+
+
 WITH CPI AS (
     SELECT * FROM {{ ref ('stg_yearly_cpi') }}
 ),

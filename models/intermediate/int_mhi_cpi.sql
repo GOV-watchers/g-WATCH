@@ -1,6 +1,4 @@
---mhi, yearly_cpi
 -- Does the change in median household income align with changes in the cost of living as indicated by the Consumer Price Index (CPI)?
-
 -- Create an intermediate table with both MHI and CPI data
 WITH MHI AS (
     SELECT * FROM {{ref('stg_mhi')}}
