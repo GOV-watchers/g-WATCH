@@ -117,17 +117,17 @@ DecadeData AS (
 )
 
 SELECT
-    DecadeData.Decade,
-    AVG(DecadeData.AvgDownPayment) AS AvgDownPayment,
-    AVG(DecadeData.MW) AS AvgMW,
-    AVG(DecadeData.AvgCPI) AS AvgCPI,
-    AVG(DecadeData.AvgHoursNeeded) AS AvgHoursNeeded,
-    (AVG(DecadeData.AvgDownPayment) * 0.5 * AVG(DecadeData.MW) * 1920) AS AvgIncomeNeeded,
-    (0.5 * AVG(DecadeData.MW) * 1920 - (AVG(DecadeData.AvgDownPayment) * 0.5 * AVG(DecadeData.MW) * 1920)) AS AvgIncomeDifference
+   DecadeData.Decade,
+    ROUND(AVG(DecadeData.AvgDownPayment), 0) AS AvgDownPayment,
+    ROUND(AVG(DecadeData.MW), 0) AS AvgMW,
+    ROUND(AVG(DecadeData.AvgCPI), 0) AS AvgCPI, 
+    ROUND(AVG(DecadeData.AvgHoursNeeded), 0) AS AvgHoursNeeded, 
+    ROUND((AVG(DecadeData.AvgDownPayment) * 0.5 * AVG(DecadeData.MW) * 1920), 0) AS AvgIncomeNeeded, 
+    ROUND((0.5 * AVG(DecadeData.MW) * 1920 - (AVG(DecadeData.AvgDownPayment) * 0.5 * AVG(DecadeData.MW) * 1920)), 0) AS AvgIncomeDifference
 FROM
     DecadeData
 GROUP BY
-    Decade;
+    Decade
 
 
 
