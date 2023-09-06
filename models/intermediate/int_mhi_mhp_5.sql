@@ -1,4 +1,4 @@
--- How many hours would the average family have to work to afford a 5% down payment on a home in the USA between 1980 to 2020?
+-- 3. How many hours would the average family have to work to afford a 5% down payment on a home in the USA between 1980 to 2020?
 WITH MHI AS (
     SELECT * FROM {{ ref('stg_mhi') }}
 ),
