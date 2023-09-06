@@ -27,4 +27,4 @@ FROM MHI M
 JOIN CPI C ON M.MHI_BY_YEAR = C.CPI_BY_YEAR
 JOIN CPI_2020 ON 1=1 -- This is a placeholder join condition to ensure you use the CPI_2020 value
 WHERE M.MHI_BY_YEAR >= '1980' AND M.MHI_BY_YEAR <= '2020'
-ORDER BY M.MHI_BY_YEAR;
+ORDER BY M.MHI_BY_YEAR
