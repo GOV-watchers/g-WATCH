@@ -1,4 +1,4 @@
--- How many hours of work is needed for an average family to fully purchase a house every year?
+-- How many hours would the minimum wage person need to work in order to purchase a house every year?
 
 WITH MW AS (
     SELECT * FROM {{ ref('stg_mw') }}
