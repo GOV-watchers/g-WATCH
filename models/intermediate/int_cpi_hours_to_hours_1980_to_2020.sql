@@ -1,4 +1,4 @@
---How have average working hours changed year to year, 
+--5. How have average working hours changed year to year, 
 --and what are the implications of these changes on housing affordability for the average household, given recent trends
 WITH CPI AS (
     SELECT * FROM {{ ref('stg_yearly_cpi') }}
