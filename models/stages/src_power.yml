@@ -2,37 +2,45 @@ version: 2
 
 sources:
   - name: CPI
+    description: "Source for CPI data"
     database: PC_FIVETRAN_DB
     schema: CPI
     tables:
       - name: CPI_AVG_BY_YEAR
+        description: "Table for CPI averages by year"
         columns:
           - name: _ROW
             tests:
               - unique
               - not_null
   - name: MEDIAN_HOUSEHOLD_INCOME_BY_YEAR
+    description: "Source for median household income data by year"
     database: PC_FIVETRAN_DB
     tables:
       - name: MEDIAN_HOUSEHOLD_INCOME
+        description: "Table for median household income"
         columns:
           - name: _ROW
             tests:
               - unique
               - not_null
   - name: HOUSE_PRICE
+    description: "Source for house price data"
     database: PC_FIVETRAN_DB
     tables:
       - name: MEDIAN_SALE_PRICES
+        description: "Table for median sale prices"
         columns:
           - name: _ROW
             tests:
               - unique
               - not_null
   - name: GOOGLE_SHEETS_FED_MIN_WAGE
+    description: "Source for federal minimum wage data from Google Sheets"
     database: PC_FIVETRAN_DB
     tables:
       - name: FEDERAL_MINIMUM_WAGE
+        description: "Table for federal minimum wage data"
         columns:
           - name: _ROW
             tests:
