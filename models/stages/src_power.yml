@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: CPI
+    database: PC_FIVETRAN_DB
+    tables:
+      - name: CPI_AVG_BY_YEAR
+  - name: MEDIAN_HOUSEHOLD_INCOME_BY_YEAR
+    database: PC_FIVETRAN_DB
+    tables:
+      - name: MEDIAN_HOUSEHOLD_INCOME
+  - name: HOUSE_PRICE
+    database: PC_FIVETRAN_DB
+    tables:
+      - name: MEDIAN_SALE_PRICES
+  - name: GOOGLE_SHEETS_FED_MIN_WAGE
+    database: PC_FIVETRAN_DB
+    tables:
+      - name: FEDERAL_MINIMUM_WAGE
