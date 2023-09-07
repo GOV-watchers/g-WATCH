@@ -1,4 +1,4 @@
--- Comparing minimum wage trends in the 80s, 90s and 2000s, would it have been possible to afford a 5% down-payment 
+-- 6. Comparing minimum wage trends in the 80s, 90s and 2000s, would it have been possible to afford a 5% down-payment 
 -- and what are the difference in the hours needed to reach that affordability level?
 
 -- The goal here is to see if someone earning minimum wage in 1980/90s would be more likely to afford a downpayment for the house 

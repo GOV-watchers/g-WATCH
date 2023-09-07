@@ -1,4 +1,5 @@
---How has the trend of the Median Household Income been like from 1980-2020?
+-- 1. How has the trend of the Median Household Income been like from 1980-2020?
+
 -- Reference the MHI and CPI models
 WITH MHI AS (
     SELECT *
