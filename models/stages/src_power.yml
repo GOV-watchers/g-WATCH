@@ -3,17 +3,38 @@ version: 2
 sources:
   - name: CPI
     database: PC_FIVETRAN_DB
+    schema: CPI
     tables:
       - name: CPI_AVG_BY_YEAR
+        columns:
+          - name: _ROW
+            tests:
+              - unique
+              - not_null
   - name: MEDIAN_HOUSEHOLD_INCOME_BY_YEAR
     database: PC_FIVETRAN_DB
     tables:
       - name: MEDIAN_HOUSEHOLD_INCOME
+        columns:
+          - name: _ROW
+            tests:
+              - unique
+              - not_null
   - name: HOUSE_PRICE
     database: PC_FIVETRAN_DB
     tables:
       - name: MEDIAN_SALE_PRICES
+        columns:
+          - name: _ROW
+            tests:
+              - unique
+              - not_null
   - name: GOOGLE_SHEETS_FED_MIN_WAGE
     database: PC_FIVETRAN_DB
     tables:
       - name: FEDERAL_MINIMUM_WAGE
+        columns:
+          - name: _ROW
+            tests:
+              - unique
+              - not_null
