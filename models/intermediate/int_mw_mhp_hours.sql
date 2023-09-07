@@ -1,7 +1,4 @@
---Comparing different minimum wages in different years, can you determine whether it would have been possible to afford a home in 1990 or 2000 
---based on the hours needed to reach that affordability level?
---modify for downpayment and using 50% of income
-
+-- 10. Comparing different minimum wages in different years, can you determine whether it would have been possible to afford a home in 1990 or 2000 based on the hours needed to reach that affordability level?
 
 WITH MW AS (
     SELECT * FROM {{ ref('stg_mw') }}
