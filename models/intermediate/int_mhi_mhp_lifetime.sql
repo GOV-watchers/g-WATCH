@@ -7,9 +7,9 @@ MHP AS(
     SELECT * FROM {{ ref('stg_mhp') }}
 )
 SELECT
-    MHI.MHI_ID AS ID,
-    MHI.MHI_BY_YEAR,
-    MHI.MHI,
+    MHI_ID AS ID,
+    MHI_BY_YEAR,
+    MHI,
     MHP.MHP,
     ((MHI*.36)) AS INCOME_THRIRTYSIX,
     FLOOR((MHP/INCOME_THRIRTYSIX)) AS YEARS,
