@@ -2,7 +2,7 @@
 
 {{
     config(
-        materalized = 'table',
+        materialized = 'table',
     )
 }}
 WITH MW_MHI_CPI AS(
