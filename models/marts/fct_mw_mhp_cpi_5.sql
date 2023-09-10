@@ -6,7 +6,7 @@
 
 {{
     config(
-        materalized = 'table',
+        materialized = 'table',
     )
 }}
 
