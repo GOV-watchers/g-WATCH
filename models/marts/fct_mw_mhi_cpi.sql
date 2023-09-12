@@ -1,4 +1,62 @@
--- 9. Compare the changes in the minimum wage on people's ability to buy things compared to inflation (CPI) and the average household income over time?
+-- WITH MW_MHI_CPI AS (
+--     SELECT * FROM {{ ref('int_mw_mhi_cpi') }}
+-- ),
+-- CPI_2020 AS (
+--     SELECT MAX(CPI_AVG) AS CPI_2020
+--     FROM MW_MHI_CPI
+--     WHERE CPI_BY_YEAR = '2020'
+-- ),
+-- YearlyData AS (
+--     SELECT
+--         FEDERAL_MINIMUM_WAGE,
+--         MW_BY_YEAR AS YEAR,
+--         CPI_AVG,
+--         CAST(ROUND(FEDERAL_MINIMUM_WAGE * 1920, 0) AS VARCHAR(10)) || '.00' AS MW_YEARLY_SALARY,
+--         CAST((MHI - ROUND(FEDERAL_MINIMUM_WAGE * 1920, 0)) AS VARCHAR(10)) || '.00' AS SALARY_DIFFERENCE,
+--         CAST(MHI AS VARCHAR(10)) || '.00' AS MHI_YEARLY_SALARY
+--     FROM MW_MHI_CPI
+-- )
+-- , IntervalData AS (
+--     SELECT 
+--         FEDERAL_MINIMUM_WAGE,
+--         YEAR,
+--         CPI_AVG,
+--         MW_YEARLY_SALARY,
+--         SALARY_DIFFERENCE,
+--         MHI_YEARLY_SALARY,
+--         CONCAT(
+--             FLOOR(YEAR/5) * 5,
+--             '-',
+--             FLOOR(YEAR/5) * 5 + 5
+--         ) AS FIVE_YEAR_INTERVAL
+--     FROM YearlyData
+-- )
+-- , RankedIntervalData AS (
+--     SELECT 
+--         ROW_NUMBER() OVER (ORDER BY FIVE_YEAR_INTERVAL) AS PRIMARY_KEY,
+--         FIVE_YEAR_INTERVAL,
+--         FEDERAL_MINIMUM_WAGE,
+--         YEAR,
+--         CPI_AVG,
+--         MW_YEARLY_SALARY,
+--         SALARY_DIFFERENCE,
+--         MHI_YEARLY_SALARY
+--     FROM IntervalData
+-- )
+
+
+
+-- SELECT 
+--     PRIMARY_KEY,
+--     FIVE_YEAR_INTERVAL,
+--     AVG(ROUND(CPI_AVG, 0)) AS CPI_AVG,
+--     AVG(CAST(MW_YEARLY_SALARY AS DECIMAL(10,2))) AS AVG_MW_YEARLY_SALARY,
+--     AVG(CAST(SALARY_DIFFERENCE AS DECIMAL(10,2))) AS AVG_DIFFERENCE_SALARY,
+--     AVG(CAST(MHI_YEARLY_SALARY AS DECIMAL(10,2))) AS AVG_MHI_YEARLY_SALARY
+-- FROM RankedIntervalData
+-- GROUP BY PRIMARY_KEY, FIVE_YEAR_INTERVAL
+-- ORDER BY PRIMARY_KEY;
+
 
 {{
     config(
@@ -19,7 +77,6 @@ CPI_2020 AS (
 -- CALCULATE THE INFLATION-ADJUSTED
 YearlyData AS (
     SELECT
-        ID_MW AS ID,
         FEDERAL_MINIMUM_WAGE,
         MW_BY_YEAR AS YEAR,
         CPI_AVG,
@@ -37,7 +94,6 @@ SELECT
     AVG(CAST(MHI_YEARLY_SALARY AS DECIMAL(10,2))) AS AVG_MHI_YEARLY_SALARY
 FROM(
     SELECT 
-        ID,
         FEDERAL_MINIMUM_WAGE,
         YEAR,
         CPI_AVG,
