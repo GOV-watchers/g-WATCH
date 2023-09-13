@@ -20,7 +20,7 @@ DecadeData AS (
         AVG(MHP / 20) AS AvgDownPayment,
         FEDERAL_MINIMUM_WAGE AS MW,
         AVG(CPI_AVG) AS AvgCPI,
-        SUBSTRING(((AVG(MHP / 20) / (0.5 * MW * (AVG(CPI_AVG) / 100) * 1920)) * 1920), 1, 4) AS AvgHoursNeeded
+        SUBSTRING(((AVG(MHP / 20) / (0.5 * MW * (AVG(CPI_AVG) / 100) * 2087)) * 2087), 1, 4) AS AvgHoursNeeded
     FROM MW_MHI_CPI
     WHERE SUBSTRING(MHP_BY_YEAR, 1, 4) = SUBSTRING(MW_BY_YEAR, 1, 4) AND SUBSTRING(MHP_BY_YEAR, 1, 4) = SUBSTRING(CPI_BY_YEAR, 1, 4)
     GROUP BY
@@ -33,8 +33,8 @@ SELECT
     ROUND(AVG(DecadeData.MW), 0) AS AvgMW,
     ROUND(AVG(DecadeData.AvgCPI), 0) AS AvgCPI, 
     ROUND(AVG(DecadeData.AvgHoursNeeded), 0) AS AvgHoursNeeded, 
-    ROUND((AVG(DecadeData.AvgDownPayment) * 0.5 * AVG(DecadeData.MW) * 1920), 0) AS AvgIncomeNeeded, 
-    ROUND((0.5 * AVG(DecadeData.MW) * 1920 - (AVG(DecadeData.AvgDownPayment) * 0.5 * AVG(DecadeData.MW) * 1920)), 0) AS AvgIncomeDifference
+    ROUND((AVG(DecadeData.AvgDownPayment) * 0.5 * AVG(DecadeData.MW) * 2087), 0) AS AvgIncomeNeeded, 
+    ROUND((0.5 * AVG(DecadeData.MW) * 2087 - (AVG(DecadeData.AvgDownPayment) * 0.5 * AVG(DecadeData.MW) * 2087)), 0) AS AvgIncomeDifference
 FROM
     DecadeData
 GROUP BY
